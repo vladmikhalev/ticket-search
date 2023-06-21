@@ -30,16 +30,21 @@ export function FilterPanel() {
     <div className={styles.filterPanel}>
       <h2 className={styles.subtitle}>Фильтр поиска</h2>
       <form className={styles.filterForm}>
+
+        
         <label className={styles.filterLabel} htmlFor="nameInput">Название</label>
         <input className={styles.filterInput} type="text" id="nameInput" name="nameFilm" placeholder='Введите название' />
 
-        <label className={styles.filterLabel} htmlFor="genreInput">Жанр</label>
-        <input className={styles.select} type="text" id="genreInput" name="genreFilm" placeholder='Выберите жанр' />
 
-        <label className={styles.filterLabel} htmlFor="cinemaInput">Кинотеатр</label>
-        <input className={styles.select} type="text" id="cinemaInput" name="cinemaFilm" placeholder='Выберите кинотеатр' />
-
-
+        <div className={styles.filterLabel}>Жанр</div>
+        <Select
+          mode="rows"
+          options={options}
+          selected={selectedValue || null}
+          onChange={handleSelect}
+          placeholder="Выберите жанр"
+        />
+        <div className={styles.filterLabel}>Кинотеатр</div>
         <Select
           mode="rows"
           options={options}

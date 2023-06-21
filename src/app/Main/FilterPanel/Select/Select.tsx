@@ -1,19 +1,7 @@
-// import React from 'react';
-import Styles from './select.module.css';
-
-// export function CustomSelect() {
-//   return (
-
-//   );
-// }
-
-
 import React, { useState, useEffect, useRef } from "react";
+import Styles from './select.module.css';
 import type { MouseEventHandler } from "react";
-
-// import { ReactComponent as ArrowDown } from "./assets/arrow-down.svg";
 import { IconArrowSelect } from '@/shared/icons';
-// import Styles from "./index.module.css";
 
 type Option = {
   title: string;
@@ -141,6 +129,7 @@ function Select(props: SelectProps) {
       className={Styles.selectWrapper}
       ref={rootRef}
       data-is-active={isOpen}
+      onClick={handlePlaceHolderClick}
       data-mode={mode}
       data-testid="selectWrapper"
     >
@@ -152,7 +141,7 @@ function Select(props: SelectProps) {
         className={Styles.placeholder}
         data-status={status}
         data-selected={!!selected?.value}
-        onClick={handlePlaceHolderClick}
+        
         role="button"
         tabIndex={0}
         ref={placeholderRef}

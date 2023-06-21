@@ -1,38 +1,49 @@
 .selectWrapper {
   position: relative;
   border-radius: 12px;
+  margin-bottom: 16px;
 }
 
 .arrow {
+  width: 18px;
+  height: 18px;
   position: absolute;
-  right: 6px;
-  top: 50%;
+  right: 16px;
+  top: 30%;
   transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out;
-  margin-top: -12px;
+  /* margin-top: -8px; */
 }
 
 .placeholder {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 30px;
-  padding: 5px;
+  height: 40px;
+  margin-bottom: 4px;
+  padding: 10px 16px;
   cursor: pointer;
   border: 1px;
-  font-family: "SF Pro";
+  font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #999FA6;
   background: rgb(255, 255, 255);
   box-sizing: border-box;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 8px;
+
+
+}
+
+.placeholder:focus-visible {
+  outline: none;
+  border: 1px solid #FF5500;
 }
 
 .placeholder[data-status="default"] {
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid #E1E3E6;
 }
 
 .placeholder[data-status="invalid"] {
@@ -40,20 +51,20 @@
 }
 
 .placeholder[data-selected="true"] {
-  color: rgb(0, 0, 0);
+  color: #1B1F23;
 }
 
 .selectWrapper[data-is-active="true"] .arrow {
   transform: rotate(180deg);
-  margin-top: -6px;
+  transform-origin: center;
+  /* margin-top: -6px; */
 }
 
 .selectWrapper[data-is-active="true"] .placeholder {
-  border: 1px solid #0022f5;
+  border: 1px solid #FF5500;
 }
 
-.selectWrapper:not([data-is-active="true"])
-  .placeholder:not([data-status="invalid"]):hover {
+.selectWrapper:not([data-is-active="true"]) .placeholder:not([data-status="invalid"]):hover {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -63,32 +74,38 @@
   list-style: none;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 8px;
   box-sizing: border-box;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+  height: 300px;
+  overflow: auto;
 }
 
 .option {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 30px;
-  padding: 5px;
+  /* height: 30px; */
+  padding: 12px 12px 10px;
   border: 1px;
   cursor: pointer;
-  font-family: "SF Pro";
+  font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   background-color: rgba(255, 255, 255, 1);
-  color: rgb(0, 0, 0);
+  color: #1B1F23;
 }
 
 .option[aria-selected="true"] {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 .option:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
