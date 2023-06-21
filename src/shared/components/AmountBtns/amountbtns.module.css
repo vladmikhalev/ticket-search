@@ -1,0 +1,22 @@
+.amountBtns {
+  display: flex;
+  align-items: center;
+
+}
+
+.amount {
+  margin: 0 8px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #1B1F23;
+}
+
+.btnDecrease[data-disabled="true"] rect {
+  fill: #FFA375
+} 
+
+.btnIncrease[data-disabled="true"] rect {
+  fill: #FFA375
+} 
+

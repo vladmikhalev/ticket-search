@@ -1,0 +1,41 @@
+.filterPanel {
+  position: sticky;
+  top: 98px;
+  left: 0;
+  width: 408px;
+
+  height: 400px; 
+
+  margin-right: 23px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  color: #1B1F23;
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterLabel {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1B1F23;
+}
+
+
+
+.select {
+  margin-bottom: 30px;
+}

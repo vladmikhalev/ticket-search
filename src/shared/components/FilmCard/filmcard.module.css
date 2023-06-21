@@ -1,0 +1,37 @@
+.filmCard {
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: space-between; */
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.imgFilm {
+  margin-right: 24px;
+}
+
+.descr {
+  flex-grow: 1;
+
+}
+
+.filmName {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #1B1F23;
+}
+
+.filmGenre {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1B1F23;
+}
+
+
+
