@@ -1,0 +1,24 @@
+.footer {
+  flex: 0 0 auto;
+  justify-self: flex-end;
+  background-color: #333333;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageLink {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #FFFFFF;
+}
