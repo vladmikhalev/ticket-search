@@ -1,7 +1,5 @@
 .amountBtns {
   display: flex;
-  align-items: center;
-
 }
 
 .amount {
@@ -11,12 +9,19 @@
   line-height: 20px;
   color: #1B1F23;
 }
+.btnDecrease, .btnIncrease {
+  outline: none;
+}
+
+.btnDecrease:hover rect, .btnIncrease:hover rect {
+  fill: #E94E00;
+}
 
 .btnDecrease[data-disabled="true"] rect {
-  fill: #FFA375
+  fill: #FFA375;
 } 
 
 .btnIncrease[data-disabled="true"] rect {
-  fill: #FFA375
+  fill: #FFA375;
 } 
 

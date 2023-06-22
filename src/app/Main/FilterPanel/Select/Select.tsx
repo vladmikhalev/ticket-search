@@ -98,6 +98,7 @@ function Select(props: SelectProps) {
     return () => {
       window.removeEventListener("click", handleClick);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onClose]);
 
   useEffect(() => {

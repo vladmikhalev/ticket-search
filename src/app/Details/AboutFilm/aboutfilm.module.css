@@ -1,0 +1,61 @@
+.aboutFilm {
+  position: relative;
+  display: flex;
+  margin-bottom: 24px;
+  /* align-items: flex-start; */
+
+  width: 100%;
+  padding: 24px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+}
+
+.btnGroup {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.imgWrapper {
+  margin-right: 32px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 32px;
+  color: #1B1F23;
+}
+
+.categories {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1B1F23;
+}
+
+.categories:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.descr {
+  margin-top: 32px;
+}
+
+.descrSubtitle {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: #1B1F23;
+}
+
+.descrText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1B1F23;
+}

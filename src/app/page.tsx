@@ -1,4 +1,7 @@
 import Image from 'next/image'
+import { AboutUs } from './AboutUs'
+import { Basket } from './Basket'
+import { Details } from './Details'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import Main from './Main/Main'
@@ -10,7 +13,11 @@ export default function Home() {
       <div className={styles.pageWrapper}>
         <Header />
         <main className={styles.main}>
-          <Main />
+          {/* <Details /> */}
+          {/* <Main /> */}
+
+          <Basket />
+          {/* <AboutUs /> */}
         </main>
         <Footer />
       </div>

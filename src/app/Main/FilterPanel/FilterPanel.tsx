@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import styles from './filterpanel.module.css';
 import Select from './Select/Select';
 
@@ -19,7 +19,12 @@ const options = [
 ]
 
 export function FilterPanel() {
+  const [filterText, setFilterText] = React.useState("");
   const [selectValue, setSelectValue] = React.useState("");
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setFilterText(event.target.value);
+  }
 
   function handleSelect(value: string) {
     setSelectValue(value);
@@ -31,9 +36,9 @@ export function FilterPanel() {
       <h2 className={styles.subtitle}>Фильтр поиска</h2>
       <form className={styles.filterForm}>
 
-        
+
         <label className={styles.filterLabel} htmlFor="nameInput">Название</label>
-        <input className={styles.filterInput} type="text" id="nameInput" name="nameFilm" placeholder='Введите название' />
+        <input className={styles.filterInput} value={filterText} onChange={handleChange} type="text" id="nameInput" name="nameFilm" placeholder='Введите название' />
 
 
         <div className={styles.filterLabel}>Жанр</div>
