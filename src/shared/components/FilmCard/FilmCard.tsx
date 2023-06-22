@@ -19,10 +19,10 @@ export function FilmCard({ btnDelete }: IPropsFilmList) {
   // function handleModalOpen {
 
   // }
-  const pathname = usePathname()
-  console.log(pathname);
-  const router = useRouter()
-  console.log(router);
+  // const pathname = usePathname()
+  // console.log(pathname);
+  // const router = useRouter()
+  // console.log(router);
 
 
   return (
@@ -40,13 +40,13 @@ export function FilmCard({ btnDelete }: IPropsFilmList) {
         <AmountBtns />
 
         {btnDelete && // И если количество билетов === 0 то должна показаться кнопка удаления фильма
-          <Link href={`/basket/delete-ticket`} className={styles.btnDelete}>
-            <IconDelete />
-          </Link>
-
-          // <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+          // <Link href={`/basket/delete-ticket`} className={styles.btnDelete}>
           //   <IconDelete />
-          // </button>
+          // </Link>
+
+          <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+            <IconDelete />
+          </button>
 
         }
         {isModalOpen && <ModalDelete />}

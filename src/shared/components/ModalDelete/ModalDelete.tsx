@@ -1,3 +1,4 @@
+import { IconDelete } from '@/shared/icons';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './modaldelete.module.css';
@@ -26,7 +27,7 @@ export function ModalDelete() {
     // dispatch(removeTaskStatistics({ id: id }));
     // navigate('/timer');
   }
-  
+
 
   // React.useEffect(() => {
   //   function handleClick(event: MouseEvent) {
@@ -47,15 +48,25 @@ export function ModalDelete() {
     <div id="modal" className={styles.modalBackgr} ref={refBackgr}>
       <div className={styles.modal} >
         <div className={styles.content} ref={ref}>
-          <h3 className={styles.title}>Удалить задачу?</h3>
-          <button className={styles.remove} onClick={handleRemove}>Удалить</button>
-          <button className={styles.cancel} onClick={handleClose}>Отмена</button>
-          <button className={styles.exit} onClick={handleClose}>
-            {/* <IconExitModal /> */}
-          </button>
+
+          <div className={styles.wrapper}>
+            <h3 className={styles.title}>Удалить задачу?</h3>
+            <button className={styles.exit} onClick={handleClose}>
+              <IconDelete />
+            </button>
+          </div>
+
+          <p className={styles.text}>Вы уверены, что хотите удалить билет?</p>
+
+          <div className={styles.btnGroup}>
+            <button className={styles.remove} onClick={handleRemove}>Да</button>
+            <button className={styles.cancel} onClick={handleClose}>Нет</button>
+          </div>
+
+
         </div>
       </div>
     </div>
-  ), node) ; //: null
+  ), node); //: null
 }
 

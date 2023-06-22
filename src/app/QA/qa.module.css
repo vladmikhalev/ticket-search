@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.subtitleBlock {
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+}
+
+.subtitle {
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 32px;
+  color: #1B1F23;
+}
+
+.list {
+  list-style: none;
+}

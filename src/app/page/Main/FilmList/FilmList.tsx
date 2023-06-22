@@ -1,0 +1,26 @@
+import React from 'react';
+
+import styles from './filmlist.module.css';
+import { FilmCard } from '@/shared/components/FilmCard';
+
+interface IPropsFilmList {
+  btnDelete?: boolean;
+}
+
+
+export function FilmList({btnDelete}: IPropsFilmList) {
+  
+  return (
+    <ul className={styles.filmList}>
+
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+
+    </ul>
+  );
+}
