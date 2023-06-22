@@ -3,10 +3,11 @@ import { FilmList } from '../Main/FilmList';
 import styles from './basket.module.css';
 
 export function Basket() {
+
   return (
     <div className={styles.container} >
 
-      <FilmList />
+      <FilmList btnDelete={true} />
 
       <div className={styles.totalTiket}>
         <span className={styles.text}>Итого билетов:</span>

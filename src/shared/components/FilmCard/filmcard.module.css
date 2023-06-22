@@ -6,6 +6,12 @@
   border-radius: 8px;
 }
 
+.btnGroup {
+  display: flex;
+  align-items: center;
+}
+
+
 .filmCard:not(:last-child) {
   margin-bottom: 16px;
 }
@@ -34,3 +40,8 @@
   line-height: 20px;
   color: #1B1F23;
 }
+
+.btnDelete {
+  margin-left: 24px;
+}
+

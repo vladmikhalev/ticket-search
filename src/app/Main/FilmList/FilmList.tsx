@@ -3,19 +3,23 @@ import React from 'react';
 import styles from './filmlist.module.css';
 import { FilmCard } from '@/shared/components/FilmCard';
 
+interface IPropsFilmList {
+  btnDelete?: boolean;
+}
 
-export function FilmList() {
+
+export function FilmList({btnDelete}: IPropsFilmList) {
   
   return (
     <ul className={styles.filmList}>
 
-      <FilmCard />
-      <FilmCard />
-      <FilmCard />
-      <FilmCard />
-      <FilmCard />
-      <FilmCard />
-      <FilmCard />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
+      <FilmCard btnDelete={btnDelete} />
 
     </ul>
   );
