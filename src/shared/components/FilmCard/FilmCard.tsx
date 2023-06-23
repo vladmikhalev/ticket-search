@@ -6,7 +6,6 @@ import imgSrc from '../../../../public/assets/images/previewFilm.jpg';
 import { AmountBtns } from '../AmountBtns';
 import { IconDelete } from '@/shared/icons';
 import Link from 'next/link';
-import { ModalDelete } from '../ModalDelete';
 import { usePathname, useRouter } from 'next/navigation'
 
 interface IPropsFilmList {
@@ -37,12 +36,17 @@ export function FilmCard({ btnDelete }: IPropsFilmList) {
           //   <IconDelete />
           // </Link>
 
-          <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+          // Нужно ли передавать ID в href ???
+          <Link onClick={() => setIsModalOpen(!isModalOpen)} className={styles.btnDelete} href="/Basket/ModalDelete">  
             <IconDelete />
-          </button>
+          </Link>
+
+          // <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+          //   <IconDelete />
+          // </button>
 
         }
-        {isModalOpen && <ModalDelete />}
+        {/* {isModalOpen && <ModalDelete />} */}
       </div>
 
     </li>

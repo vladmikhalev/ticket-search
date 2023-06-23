@@ -1,1 +1,1 @@
-export * from './ModalDelete';
+export * from './page';

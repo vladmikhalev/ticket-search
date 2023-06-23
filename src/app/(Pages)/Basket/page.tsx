@@ -1,8 +1,8 @@
 import React from 'react';
-import { FilmList } from '../Main/FilmList';
+import { FilmList } from '../../Main/FilmList';
 import styles from './basket.module.css';
 
-export function Basket() {
+export default function Basket() {
 
   return (
     <div className={styles.container} >

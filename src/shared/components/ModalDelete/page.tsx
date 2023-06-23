@@ -7,7 +7,7 @@ import styles from './modaldelete.module.css';
 //   id: string;
 // }
 // { id }: IModalDeleteProps
-export function ModalDelete() {
+export default function ModalDelete() {
   const ref = React.useRef<HTMLDivElement>(null);
   const refBackgr = React.useRef<HTMLDivElement>(null);
   // const navigate = useNavigate(); 

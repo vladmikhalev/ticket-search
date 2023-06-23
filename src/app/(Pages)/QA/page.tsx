@@ -77,7 +77,7 @@ MenuAccordion.Item = function MenuItem({ title }: any) {
 
 
 
-export function QA() {
+export default function QA() {
   return (
     <div className={styles.container}>
       <div className={styles.subtitleBlock}>
