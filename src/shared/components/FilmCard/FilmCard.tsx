@@ -7,6 +7,7 @@ import { AmountBtns } from '../AmountBtns';
 import { IconDelete } from '@/shared/icons';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation'
+import ModalDelete from '../ModalDelete/ModalDelete';
 
 interface IPropsFilmList {
   btnDelete?: boolean;
@@ -37,16 +38,16 @@ export function FilmCard({ btnDelete }: IPropsFilmList) {
           // </Link>
 
           // Нужно ли передавать ID в href ???
-          <Link onClick={() => setIsModalOpen(!isModalOpen)} className={styles.btnDelete} href="/Basket/ModalDelete">  
-            <IconDelete />
-          </Link>
-
-          // <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+          // <Link onClick={() => setIsModalOpen(!isModalOpen)} className={styles.btnDelete} href="/Basket/ModalDelete">  
           //   <IconDelete />
-          // </button>
+          // </Link>
+
+          <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+            <IconDelete />
+          </button>
 
         }
-        {/* {isModalOpen && <ModalDelete />} */}
+        {isModalOpen && <ModalDelete setIsModalOpen={setIsModalOpen} />}
       </div>
 
     </li>

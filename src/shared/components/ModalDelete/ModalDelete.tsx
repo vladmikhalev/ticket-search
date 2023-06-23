@@ -4,11 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './modaldelete.module.css';
 
-// interface IModalDeleteProps {
-//   id: string;
-// }
-// { id }: IModalDeleteProps
-export default function ModalDelete() {
+interface IModalDeleteProps {
+  // id: string;
+  setIsModalOpen: (value: boolean) => void;
+}
+
+export default function ModalDelete({setIsModalOpen}: IModalDeleteProps) {
   const ref = React.useRef<HTMLDivElement>(null);
   const refBackgr = React.useRef<HTMLDivElement>(null);
   // const navigate = useNavigate(); 
@@ -21,30 +22,32 @@ export default function ModalDelete() {
 
   function handleClose() {
     // navigate('/timer');
+    setIsModalOpen(false);
   }
 
   function handleRemove() {
+    setIsModalOpen(false);
     // dispatch(removeTask({ id }));
     // dispatch(removeTaskStatistics({ id: id }));
     // navigate('/timer');
   }
 
 
-  // React.useEffect(() => {
-  //   function handleClick(event: MouseEvent) {
-  //     if (event.target instanceof Node && !ref.current?.contains(event.target) && refBackgr.current?.contains(event.target)) {
-  //       navigate('/timer');
-  //     }
-  //   }
-  //   document.addEventListener('click', handleClick);
-  //   return () => {
-  //     document.removeEventListener('click', handleClick);
-  //   };
-  // }, []);
+  React.useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      if (event.target instanceof Node && !ref.current?.contains(event.target) && refBackgr.current?.contains(event.target)) {
+        setIsModalOpen(false);
+      }
+    }
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
 
   const node = document.querySelector('#modalRoot');
   if (!node) return null;
-  // checkId ? 
+  // checkId ?  !!!!!!!!!!!!!!!!!!!!!!!
   return ReactDOM.createPortal((
     <div id="modal" className={styles.modalBackgr} ref={refBackgr}>
       <div className={styles.modal} >
