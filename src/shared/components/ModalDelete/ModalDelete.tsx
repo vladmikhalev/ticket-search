@@ -1,3 +1,4 @@
+"use client"
 import { IconDelete } from '@/shared/icons';
 import React from 'react';
 import ReactDOM from 'react-dom';
