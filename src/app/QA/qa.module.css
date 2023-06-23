@@ -26,3 +26,160 @@
 .list {
   list-style: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .item {
+  padding: 24px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+} */
+
+.item {
+  margin-bottom: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 24px;
+  background: #FFFFFF;
+}
+
+.wrapper {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.descrWrapper {
+  /* padding: 0 24px 24px 24px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #FFFFFF; */
+}
+
+.arrow:focus-visible {
+  outline: none;
+}
+
+.arrow {
+  transition: all 0.2s ease-in-out;
+}
+.item[data-is-open="true"] .arrow {
+  transform: rotate(180deg);
+  transform-origin: center;
+
+}
+
+.subtitle {
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #1B1F23;
+}
+
+.text {
+  margin: 0;
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1B1F23;
+}
+
+
+@keyframes fade-in {
+  0% {
+    /* opacity: 0; */
+    max-height: 0;
+    overflow: hidden;
+    /* transform: translateY(-80px); */
+  }
+
+  100% {
+    /* transform: translateY(0); */
+    height: auto;
+    max-height: 9999px;
+    /* opacity: 1; */
+  }
+}
+
+/* @keyframes fade-out { */
+  /* 0% { */
+    /* opacity: 1; */
+    /* transform: translateY(0); */
+    /* height: 72px; */
+  /* } */
+
+  /* 100% { */
+    /* transform: translateY(-80px); */
+    /* height: 0; */
+    /* opacity: 0; */
+  /* } */
+/* } */
+
+/* .itemExitActive {
+
+  animation: fade-out 200ms ease-out forwards;
+} */
+
+/* .itemEnterActive {
+  animation: fade-in 200ms cubic-bezier(1,0,1,0) forwards;
+  animation: fade-in 200ms ease-in forwards;
+} */
+
+
+/* 
+.itemEnter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.itemEnterActive {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-itemExit {
+  opacity: 1;
+}
+.itemExitActive {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+} */
+
+
+.wrapperIsOpen {
+  /* margin: 0;
+  border: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 24px 24px 16px 24px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; */
+}

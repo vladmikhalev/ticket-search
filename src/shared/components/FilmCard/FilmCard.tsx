@@ -15,14 +15,7 @@ interface IPropsFilmList {
 
 export function FilmCard({ btnDelete }: IPropsFilmList) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
-  console.log(isModalOpen)
-  // function handleModalOpen {
 
-  // }
-  // const pathname = usePathname()
-  // console.log(pathname);
-  // const router = useRouter()
-  // console.log(router);
 
 
   return (
