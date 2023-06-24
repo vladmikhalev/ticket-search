@@ -19,7 +19,10 @@
 .imgFilm {
   margin-right: 24px;
 }
-
+.img{
+  border-radius: 8px;
+  object-fit: cover;
+}
 .descr {
   flex-grow: 1;
 
