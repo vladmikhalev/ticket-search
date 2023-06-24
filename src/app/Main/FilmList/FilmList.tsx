@@ -10,45 +10,18 @@ import { IFilm, useGetMoviesQuery } from '@/redux/services/movieApi';
 
 interface IPropsFilmList {
   btnDelete?: boolean,
+  films?: IFilm[],
   // filmsArray: TFilmsArray
 }
 
-// interface IDataFilm {
-//   id: string,
-//   posterUrl: string,
-//   title: string,
-//   genre: string,
-// }
-
-// type TFilmsArray = IDataFilm[];
 
 
 
 
-export function FilmList({ btnDelete }: IPropsFilmList) {
-  
-  const { data, isLoading, error } = useGetMoviesQuery();
-
-  const films = data?.map(el => {
-    if (el.genre === 'fantasy') {
-      return { ...el, genre: "Фэнтези" };
-    }
-    if (el.genre === 'horror') {
-      return { ...el, genre: "Ужасы" };
-    }
-    if (el.genre === 'action') {
-      return { ...el, genre: "Боевик" };
-    }
-    if (el.genre === 'comedy') {
-      return { ...el, genre: "Комедия" };
-    }
-    return el;
-  })
-  console.log(films, 'films');
+export function FilmList({ btnDelete, films }: IPropsFilmList) {
 
   return (
     <ul className={styles.filmList}>
-
       {films && films.map((el: IFilm) => (
         <FilmCard
           key={el.id}
@@ -58,15 +31,7 @@ export function FilmList({ btnDelete }: IPropsFilmList) {
           posterUrl={el.posterUrl}
           btnDelete={btnDelete}
         />
-
       ))}
-      {/* <FilmCard btnDelete={btnDelete} />
-      <FilmCard btnDelete={btnDelete} />
-      <FilmCard btnDelete={btnDelete} />
-      <FilmCard btnDelete={btnDelete} />
-      <FilmCard btnDelete={btnDelete} />
-      <FilmCard btnDelete={btnDelete} /> */}
-
     </ul>
   );
 }

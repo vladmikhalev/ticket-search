@@ -8,6 +8,9 @@ import { IconDelete } from '@/shared/icons';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation'
 import ModalDelete from '../ModalDelete/ModalDelete';
+import { RootState } from '@/redux/store';
+import { useSelector } from 'react-redux';
+import { selectProductAmount } from '@/redux/feature/basket/selectorBasket';
 
 interface IPropsFilmList {
   btnDelete?: boolean,
@@ -19,8 +22,8 @@ interface IPropsFilmList {
 
 export function FilmCard({ id, btnDelete, title, genre, posterUrl }: IPropsFilmList) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
-
-  console.log(posterUrl);
+  const productAmount = useSelector((state: RootState) => selectProductAmount(state, id))
+  console.log(productAmount, 'PAAA');
 
   return (
     <li className={styles.filmCard}>
@@ -34,24 +37,14 @@ export function FilmCard({ id, btnDelete, title, genre, posterUrl }: IPropsFilmL
       </div>
 
       <div className={styles.btnGroup}>
-        <AmountBtns id={id} />
+        <AmountBtns setIsModalOpen={setIsModalOpen} id={id} />
 
-        {btnDelete && // И если количество билетов === 0 то должна показаться кнопка удаления фильма
-          // <Link href={`/basket/delete-ticket`} className={styles.btnDelete}>
-          //   <IconDelete />
-          // </Link>
-
-          // Нужно ли передавать ID в href ???
-          // <Link onClick={() => setIsModalOpen(!isModalOpen)} className={styles.btnDelete} href="/Basket/ModalDelete">  
-          //   <IconDelete />
-          // </Link>
-
-          <button className={styles.btnDelete} onClick={() => setIsModalOpen(!isModalOpen)}>
+        {btnDelete && 
+          <button className={styles.btnDelete} onClick={() => setIsModalOpen(true)}>
             <IconDelete />
           </button>
-
         }
-        {isModalOpen && <ModalDelete setIsModalOpen={setIsModalOpen} />}
+        {isModalOpen && <ModalDelete  id={id} setIsModalOpen={setIsModalOpen} />}
       </div>
 
     </li>

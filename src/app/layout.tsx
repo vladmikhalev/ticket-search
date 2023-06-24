@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <StoreProvider>
+    <StoreProvider>
+      <html lang="en">
+        <body className={inter.className}>
           <div className={styles.pageWrapper}>
             <Header />
             <main className={styles.main}>
@@ -29,8 +29,8 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-        </StoreProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </StoreProvider>
   )
 }

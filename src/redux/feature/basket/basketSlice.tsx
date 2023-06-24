@@ -37,7 +37,11 @@ export const basketSlice = createSlice({
 
       state[id] = count - 1;
 
-    }
+    },
+    deleteTicket: (state, action: PayloadAction<IPayloadId>) => {
+      const id = action.payload.id;
+      delete state[id];
+    },
   },
 });
 
@@ -45,6 +49,6 @@ export interface State {
   options: TBasketState
 }
 
-export const { increment, decrement} = basketSlice.actions;
+export const { increment, decrement, deleteTicket} = basketSlice.actions;
 export const basketReducer = basketSlice.reducer;
 
