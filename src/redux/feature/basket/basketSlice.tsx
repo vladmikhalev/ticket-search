@@ -19,7 +19,7 @@ export const basketSlice = createSlice({
       const count = state[action.payload.id] || 0;
       if (count < 30) {
         state[action.payload.id] = count + 1;
-
+        
       }
     },
     decrement: (state, action: PayloadAction<IPayloadId>) => {

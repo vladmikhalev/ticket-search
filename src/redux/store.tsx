@@ -9,7 +9,7 @@ export const store = configureStore({
     basket: basketReducer,
     [movieApi.reducerPath]: movieApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([movieApi.middleware])
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(movieApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;

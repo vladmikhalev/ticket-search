@@ -1,48 +1,51 @@
+"use client"
 import React from 'react';
 import styles from './aboutfilm.module.css';
 import Image from 'next/image'
-import imgSrc from '../../../../public/assets/images/detailFilmImg.jpg';
+import imgSrc from '../../../../../public/assets/images/detailFilmImg.jpg';
 import { AmountBtns } from '@/shared/components/AmountBtns';
+import { usePathname } from 'next/navigation';
+import { IFilm } from '@/redux/services/movieApi';
 
-export function AboutFilm() {
+interface IPropsAboutFilm {
+  data: IFilm,
+}
 
-  // const imageStyle = {
-    // marginright: '32px',
-    // width: '400px',
-    // height: '500px',
-  // }
+
+export function AboutFilm({ data }: IPropsAboutFilm) {
+
   return (
     <div className={styles.aboutFilm}>
       <div className={styles.btnGroup}>
-        <AmountBtns />
+        <AmountBtns id={data.id} />
       </div>
 
       <div className={styles.imgWrapper}>
-        <Image src={imgSrc} alt="previewFilm" priority={true}/>
+        <Image className={styles.img} width={400} height={500} src={data.posterUrl} alt="previewFilm" priority={true} />
       </div>
 
       <div className={styles.blockText}>
-        <h2 className={styles.title}>Властелин колец: Братство кольца</h2>
+        <h2 className={styles.title}>{data.title}</h2>
 
         <div className={styles.categories}>
-          <b>Жанр:</b> Фэнтези
+          <b>Жанр:</b> {data.genre}
         </div>
 
         <div className={styles.categories}>
-          <b>Год выпуска: </b> 2001
+          <b>Год выпуска: </b> {data.releaseYear}
         </div>
 
         <div className={styles.categories}>
-          <b>Рейтинг:</b> 8
+          <b>Рейтинг:</b> {data.rating}
         </div>
 
         <div className={styles.categories}>
-          <b>Режиссер:</b> Питер Джексон
+          <b>Режиссер:</b> {data.director}
         </div>
 
         <div className={styles.descr}>
           <h3 className={styles.descrSubtitle}>Описание</h3>
-          <p className={styles.descrText}>Сказания о Средиземье — это хроника Великой войны за Кольцо, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал неограниченную власть, но был обязан служить злу. Тихая деревня, где живут хоббиты. Придя на 111-й день рождения к своему старому другу Бильбо Бэггинсу, волшебник Гэндальф начинает вести разговор о кольце, которое Бильбо нашел много лет назад. Это кольцо принадлежало когда-то темному властителю Средиземья Саурону, и оно дает большую власть своему обладателю. Теперь Саурон хочет вернуть себе власть над Средиземьем. Бильбо отдает Кольцо племяннику Фродо, чтобы тот отнёс его к Роковой Горе и уничтожил.</p>
+          <p className={styles.descrText}>{data.description}</p>
         </div>
 
       </div>

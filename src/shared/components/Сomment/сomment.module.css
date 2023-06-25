@@ -16,7 +16,9 @@
    flex-shrink: 0;
  }
 
-
+.blockText {
+  width: 100%;
+}
 
  .textTop{
   display: flex;

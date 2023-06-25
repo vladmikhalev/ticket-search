@@ -59,3 +59,8 @@
   line-height: 24px;
   color: #1B1F23;
 }
+
+.img {
+  border-radius: 8px;
+  object-fit: cover;
+}

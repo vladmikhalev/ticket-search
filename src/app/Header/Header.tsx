@@ -1,10 +1,8 @@
 "use client"
 
-import { TBasketState } from '@/redux/feature/basket/basketSlice';
 import { selectBasketModule } from '@/redux/feature/basket/selectorBasket';
 import { RootState } from '@/redux/store';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './header.module.css';

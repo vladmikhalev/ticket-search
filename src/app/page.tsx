@@ -3,7 +3,6 @@
 // import { Details } from './Details'
 // import { Footer } from './Footer'
 // import { Header } from './Header'
-import Basket from './(Pages)/Basket/page'
 import Main from './Main/Main'
 // import styles from './page.module.css'
 // import { QA } from './QA'

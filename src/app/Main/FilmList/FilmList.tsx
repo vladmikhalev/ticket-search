@@ -11,7 +11,6 @@ import { IFilm, useGetMoviesQuery } from '@/redux/services/movieApi';
 interface IPropsFilmList {
   btnDelete?: boolean,
   films?: IFilm[],
-  // filmsArray: TFilmsArray
 }
 
 

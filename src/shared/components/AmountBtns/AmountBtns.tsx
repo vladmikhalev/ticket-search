@@ -8,18 +8,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './amountbtns.module.css';
 
-
-
-
-
-
-
-
-
-
 interface IPropsAmountBtns {
   id: string
-  setIsModalOpen: (el: boolean) => void;
+  setIsModalOpen?: (el: boolean) => void;
 }
 
 export function AmountBtns({id, setIsModalOpen}: IPropsAmountBtns) {
@@ -30,7 +21,7 @@ export function AmountBtns({id, setIsModalOpen}: IPropsAmountBtns) {
   const [isDisableBtnIncrease, setIsDisableBtnIncrease] = useState('false');
 
   function handleDecrease() {
-    if (productAmount === 1 && pathname === '/Basket') {
+    if (productAmount === 1 && pathname === '/Basket' && setIsModalOpen) {
       setIsModalOpen(true);
     } else {
       dispatch(decrement({ id: id }));
@@ -64,3 +55,4 @@ export function AmountBtns({id, setIsModalOpen}: IPropsAmountBtns) {
     </div>
   );
 }
+
