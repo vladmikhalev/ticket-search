@@ -1,7 +1,9 @@
 "use client"
 import { selectBasketModule } from '@/redux/feature/basket/selectorBasket';
 import { useGetMoviesQuery } from '@/redux/services/movieApi';
-import { RootState, store } from '@/redux/store';
+import { RootState } from '@/redux/store';
+import { Error } from '@/shared/components/Error';
+import { SpinerLoading } from '@/shared/components/SpinerLoading';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { FilmList } from '../../Main/FilmList';
@@ -16,7 +18,6 @@ export default function Basket() {
 
   React.useEffect(() => {
     const sum = Object.values(basket).reduce((acc: number, el: number) => {
-      console.log(el, 'el');
       return acc + el;
     }, 0)
     setAmountTicket(sum)
@@ -37,20 +38,24 @@ export default function Basket() {
     }
     return el;
   }).filter((el) => idBasket.includes(el.id));
-  console.log(films, 'films');
 
   return (
     <div className={styles.container} >
+      {films &&
+        <>
+          <FilmList
+            films={films}
+            btnDelete={true}
+          />
 
-      <FilmList
-        films={films}
-        btnDelete={true}
-      />
-
-      <div className={styles.totalTiket}>
-        <span className={styles.text}>Итого билетов:</span>
-        <span className={styles.quantity}>{amountTicket}</span>
-      </div>
+          <div className={styles.totalTiket}>
+            <span className={styles.text}>Итого билетов:</span>
+            <span className={styles.quantity}>{amountTicket}</span>
+          </div>
+        </>
+      }
+      {isLoading && <SpinerLoading />}
+      {error && <Error />}
     </div>
   );
 }

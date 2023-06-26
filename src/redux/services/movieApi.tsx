@@ -80,19 +80,6 @@ export const movieApi = createApi({
     getCinemas: builder.query<ICinemas[], void>({
       query: () => "cinemas",
     }),
-    // getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, void>({
-    //   queryFn: async () => {
-    //     try {
-    //       const [movies, cinemas] = await Promise.all([
-    //         fetch(URL + 'movies').then((res) => res.json()),
-    //         fetch(URL + 'cinemas').then((res) => res.json()),
-    //       ]);
-    //       return { data: { movies, cinemas } };
-    //     } catch (e: any) {
-    //       return { error: e.message };
-    //     }
-    //   },
-    // }),
     getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, string>({
       queryFn: async (id: string) => {
         try {

@@ -13,7 +13,6 @@ export function Header() {
 
   React.useEffect(() => {
     const sum = Object.values(basket).reduce((acc: number, el: number) => {
-      console.log(el, 'el');
       return acc + el;
     }, 0)
     setAmountTicket(sum)

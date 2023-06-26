@@ -56,7 +56,6 @@
 .selectWrapper[data-is-active="true"] .arrow {
   transform: rotate(180deg);
   transform-origin: center;
-  /* margin-top: -6px; */
 }
 
 .selectWrapper[data-is-active="true"] .placeholder {
@@ -88,7 +87,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* height: 30px; */
   padding: 12px 12px 10px;
   border: 1px;
   cursor: pointer;

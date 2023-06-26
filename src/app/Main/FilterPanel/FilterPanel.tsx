@@ -33,22 +33,11 @@ interface INewOptionsCinemas {
 
 
 
-export function FilterPanel({ filterText, setFilterText, selectGenreCinema, setSelectGenreCinema, setSelectIdCinema, cinemas, initialData, setNewData }: IPropsFilterPanel) {
+export function FilterPanel({ filterText, setFilterText, setSelectGenreCinema, setSelectIdCinema, cinemas }: IPropsFilterPanel) {
 
   const [optionsCinemas, setOptionsCinemas] = React.useState<INewOptionsCinemas[]>([]);
-  // const [filterText, setFilterText] = React.useState("");
   const [selectValueMovie, setSelectValueMovie] = React.useState("");
   const [selectValueCinemas, setSelectValueCinemas] = React.useState("");
-
-  // React.useEffect(() => {
-  //   if (selectValueCinemas !== '' && selectValueCinemas !== "Не выбран") {
-  //     const idCinema = cinemas.find(c => c.name === selectValueCinemas)?.id;
-  //     if (idCinema) {
-  //       setSelectIdCinema(idCinema);
-  //     }
-  //   }
-  // }, [selectValueCinemas]);
-
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setFilterText(event.target.value);
@@ -77,18 +66,6 @@ export function FilterPanel({ filterText, setFilterText, selectGenreCinema, setS
   const selectedValueMovies = optionsMovie.find((item) => item.title === selectValueMovie);
   const selectedValueCinemas = optionsCinemas.find((item) => item.title === selectValueCinemas);
 
-  // React.useEffect(() => {
-  //   let filterData = initialData;
-  //   if (selectGenreCinema !== '') {
-  //     filterData = initialData.filter(item => item.genre.trim() === selectGenreCinema.trim());
-  //   }
-
-  //   if (filterText || filterText === '') {
-  //     filterData = filterData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
-  //   }
-  //   setNewData(filterData);
-
-  // }, [filterText, selectGenreCinema, initialData, setNewData]);
 
   React.useEffect(() => {
     let newOptionsCinemas = [{

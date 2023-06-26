@@ -48,7 +48,7 @@ export default function ModalDelete({setIsModalOpen, id}: IModalDeleteProps) {
         <div className={styles.content} ref={ref}>
 
           <div className={styles.wrapper}>
-            <h3 className={styles.title}>Удалить задачу?</h3>
+            <h3 className={styles.title}>Удаление билета</h3>
             <button className={styles.exit} onClick={handleClose}>
               <IconDelete />
             </button>

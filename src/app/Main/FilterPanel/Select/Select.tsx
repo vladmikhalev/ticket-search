@@ -83,7 +83,6 @@ function Select(props: SelectProps) {
     onClose
   } = props;
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedTetle, setSelectedTitle] = React.useState();
   const rootRef = useRef<HTMLDivElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
 
@@ -102,7 +101,7 @@ function Select(props: SelectProps) {
       window.removeEventListener("click", handleClick);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onClose]);
+  }, []);
 
   useEffect(() => {
     const placeholderEl = placeholderRef.current;

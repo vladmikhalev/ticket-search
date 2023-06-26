@@ -2,8 +2,6 @@
 import { IconArrowQA } from '@/shared/icons';
 import React, { useContext } from 'react';
 import styles from './qa.module.css';
-import { QAItem } from './QAItem';
-import { CSSTransition } from 'react-transition-group';
 
 
 
@@ -43,7 +41,6 @@ MenuAccordion.Group = function MenuGroup({ children, title }: any) {
     enterDone: styles.itemDone,
   };
   return <li onClick={() => switchGroup(title)} className={styles.item} data-is-open={isOpen}>
-    {/* <div className={isOpen? styles.wrapperIsOpen : styles.wrapper}></div> */}
     <div className={styles.wrapper}>
       <h3 className={styles.subtitle}>{title}</h3>
       <button className={styles.arrow}>
@@ -51,15 +48,6 @@ MenuAccordion.Group = function MenuGroup({ children, title }: any) {
       </button>
     </div>
 
-    {/* <CSSTransition
-      nodeRef={nodeRef}
-      in={isOpen}
-      timeout={500}
-      unmountOnExit
-      classNames={transitionClasses}
-    >
-      <div className={styles.descrWrapper} ref={nodeRef}>{children}</div>
-    </CSSTransition> */}
       {activeGroup === title && <div>{children}</div>}
 
   </li>

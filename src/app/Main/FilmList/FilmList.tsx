@@ -2,11 +2,7 @@ import React from 'react';
 
 import styles from './filmlist.module.css';
 import { FilmCard } from '@/shared/components/FilmCard';
-import { selectProductAmount } from '@/redux/feature/basket/selectorBasket';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/redux/store';
-import { decrement, increment } from '@/redux/feature/basket/basketSlice';
-import { IFilm, useGetMoviesQuery } from '@/redux/services/movieApi';
+import { IFilm } from '@/redux/services/movieApi';
 
 interface IPropsFilmList {
   btnDelete?: boolean,
