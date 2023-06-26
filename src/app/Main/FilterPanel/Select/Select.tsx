@@ -9,7 +9,7 @@ type Option = {
 };
 type OptionProps = {
   option: Option;
-  onClick: (value: Option["value"]) => void;
+  onClick: (value: Option["title"]) => void;
 };
 function OptionEl(props: OptionProps){
   const {
@@ -19,8 +19,9 @@ function OptionEl(props: OptionProps){
   const optionRef = useRef<HTMLLIElement>(null);
 
   const handleClick = (
-    clickedValue: Option["value"]
+    clickedValue: Option["title"]
   ): MouseEventHandler<HTMLLIElement> => () => {
+    console.log(clickedValue === "Боевик" , clickedValue);
     onClick(clickedValue);
   };
 
@@ -29,7 +30,8 @@ function OptionEl(props: OptionProps){
     if (!option) return;
     const handleEnterKeyDown = (event: KeyboardEvent) => {
       if (document.activeElement === option && event.key === "Enter") {
-        onClick(value);
+        console.log(title === "Боевик" , title);
+        onClick(title);
       }
     };
 
@@ -37,15 +39,15 @@ function OptionEl(props: OptionProps){
     return () => {
       option.removeEventListener("keydown", handleEnterKeyDown);
     };
-  }, [value, onClick]);
+  }, [title, onClick]);
 
   return (
     <li
       className={Styles.option}
-      value={value}
-      onClick={handleClick(value)}
+      value={title}
+      onClick={handleClick(title)}
       tabIndex={0}
-      data-testid={`select-option-${value}`}
+      data-testid={`select-option-${title}`}
       ref={optionRef}
     >
       {title}
@@ -64,7 +66,7 @@ type SelectProps = {
   placeholder?: string;
   mode?: "rows" | "cells";
   status?: "default" | "invalid";
-  onChange?: (selected: Option["value"]) => void;
+  onChange?: (selected: Option["title"]) => void;
   onClose?: () => void;
 };
 
@@ -118,8 +120,9 @@ function Select(props: SelectProps) {
     };
   }, []);
 
-  const handleOptionClick = (value: Option["value"]) => {
+  const handleOptionClick = (value: Option["title"]) => {
     setIsOpen(false);
+    
     onChange?.(value);
   };
   const handlePlaceHolderClick: MouseEventHandler<HTMLDivElement> = () => {

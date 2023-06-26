@@ -28,7 +28,7 @@ export interface ICinemas {
 
 export interface IMoviesAndCinemas {
   cinemas: ICinemas[],
-  movies: IFilm[]  
+  movies: IFilm[]
 }
 
 const URL = "http://localhost:3001/api/";
@@ -80,24 +80,72 @@ export const movieApi = createApi({
     getCinemas: builder.query<ICinemas[], void>({
       query: () => "cinemas",
     }),
-    getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, void>({
-      queryFn: async () => {
+    // getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, void>({
+    //   queryFn: async () => {
+    //     try {
+    //       const [movies, cinemas] = await Promise.all([
+    //         fetch(URL + 'movies').then((res) => res.json()),
+    //         fetch(URL + 'cinemas').then((res) => res.json()),
+    //       ]);
+    //       return { data: { movies, cinemas } };
+    //     } catch (e: any) {
+    //       return { error: e.message };
+    //     }
+    //   },
+    // }),
+    getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, string>({
+      queryFn: async (id: string) => {
         try {
-          const [movies, cinemas] = await Promise.all([
-            fetch(URL + 'movies').then((res) => res.json()),
+          let [movies, cinemas] = await Promise.all([
+            fetch(URL + `movies?cinemaId=${id}`).then((res) => res.json()),
             fetch(URL + 'cinemas').then((res) => res.json()),
           ]);
+          movies = movies.map((item: IFilm) => {
+            if (item.genre === 'fantasy') {
+              return { ...item, genre: "Фэнтези" };
+            }
+            if (item.genre === 'horror') {
+              return { ...item, genre: "Ужасы" };
+            }
+            if (item.genre === 'action') {
+              return { ...item, genre: "Боевик" };
+            }
+            if (item.genre === 'comedy') {
+              return { ...item, genre: "Комедия" };
+            }
+            return item;
+          });
+
           return { data: { movies, cinemas } };
         } catch (e: any) {
           return { error: e.message };
         }
       },
     }),
+    getMoviesInCinema: builder.query<IFilm[], string>({
+      query: (movieId: string) => `movies?cinemaId=${movieId}`,
+      transformResponse: (response: IFilm[]) => {
+        return response.map((item: IFilm) => {
+          if (item.genre === 'fantasy') {
+            return { ...item, genre: "Фэнтези" };
+          }
+          if (item.genre === 'horror') {
+            return { ...item, genre: "Ужасы" };
+          }
+          if (item.genre === 'action') {
+            return { ...item, genre: "Боевик" };
+          }
+          if (item.genre === 'comedy') {
+            return { ...item, genre: "Комедия" };
+          }
+          return item;
+        });
+      },
+    }),
 
   })
 });
-
-export const { useGetMoviesQuery, useGetMovieQuery, useGetCommentsQuery, useGetCinemasQuery, useGetFilmsAndCinemasDataQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieQuery, useGetCommentsQuery, useGetCinemasQuery, useGetFilmsAndCinemasDataQuery, useGetMoviesInCinemaQuery } = movieApi;
 
 
 

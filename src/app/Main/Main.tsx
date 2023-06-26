@@ -1,5 +1,5 @@
 'use client'
-import { IFilm, useGetMoviesQuery } from '@/redux/services/movieApi';
+import { IFilm, useGetFilmsAndCinemasDataQuery, useGetMoviesQuery } from '@/redux/services/movieApi';
 import { RootState } from '@/redux/store';
 import { Error } from '@/shared/components/Error';
 import { SpinerLoading } from '@/shared/components/SpinerLoading';
@@ -11,23 +11,35 @@ import styles from './main.module.css'
 
 
 export default function Main() {
-  const { data, isLoading, error } = useGetMoviesQuery();
+  const [selectIdCinema, setSelectIdCinema] = React.useState("");
+  const [selectGenreCinema, setSelectGenreCinema] = React.useState("");
+  console.log(selectGenreCinema, '11111111')
+  const { data, isLoading, error } = useGetFilmsAndCinemasDataQuery(selectIdCinema);
   const [newData, setNewData] = React.useState<IFilm[]>([]);
-  // const [dataCinemas, setDataCinemas]
 
-
+  
   React.useEffect(() => {
+    
     if (data) { 
-      setNewData(data);
+      setNewData(data.movies);
     }
   }, [data]);
-  console.log(data)
+  // React.useEffect(() => {
+    
+  //   if (selectGenreCinema !== '') { 
+  //     // filterData = initialData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
+  //     const filterGenreData = newData.filter(item => item.genre === selectGenreCinema);
+  //     console.log(filterGenreData, 'filterGenreData')
+  //     setNewData(filterGenreData);
+  //   }
+  // }, [selectGenreCinema]);
   console.log(newData, 'newData');
+  console.log(data)
   return (
     <div className={styles.container}>
       {newData && data && (
         <>
-          <FilterPanel initialData={data} setNewData={setNewData} />
+          <FilterPanel selectGenreCinema={selectGenreCinema} setSelectGenreCinema={setSelectGenreCinema} setSelectIdCinema={setSelectIdCinema} cinemas={data.cinemas} initialData={data.movies} setNewData={setNewData} />
           <FilmList
             films={newData}
           />

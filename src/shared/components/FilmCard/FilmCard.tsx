@@ -29,6 +29,8 @@ export function FilmCard({ id, btnDelete, title, genre, posterUrl }: IPropsFilmL
   }, [isModalOpen, bodyElement]);
 
 
+
+
   return (
     <li className={styles.filmCard}>
       <div className={styles.imgFilm}>
