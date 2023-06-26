@@ -38,7 +38,7 @@ export function FilmCard({ id, btnDelete, title, genre, posterUrl }: IPropsFilmL
       </div>
 
       <div className={styles.descr}>
-        <Link href={`/${id}`}>
+        <Link href={`/Film/${id}`}>
           <div className={styles.filmName}>{title}</div>
         </Link>
         <div className={styles.filmGenre}>{genre}</div>
