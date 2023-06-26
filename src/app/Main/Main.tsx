@@ -16,16 +16,37 @@ export default function Main() {
   console.log(selectGenreCinema, '11111111')
   const { data, isLoading, error } = useGetFilmsAndCinemasDataQuery(selectIdCinema);
   const [newData, setNewData] = React.useState<IFilm[]>([]);
+  const [filterText, setFilterText] = React.useState("");
 
-  
+
+
   React.useEffect(() => {
-    
-    if (data) { 
-      setNewData(data.movies);
+    if (data) {
+
+      let filterData = data.movies;
+      if (selectGenreCinema !== '') {
+        filterData = data.movies.filter(item => item.genre.trim() === selectGenreCinema.trim());
+      }
+
+      if (filterText || filterText === '') {
+        filterData = filterData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
+      }
+      setNewData(filterData);
     }
-  }, [data]);
+
+  }, [filterText, selectGenreCinema, data, setNewData]);
+
+
+
+
   // React.useEffect(() => {
-    
+
+  //   if (data) {
+  //     setNewData(data.movies);
+  //   }
+  // }, [data]);
+  // React.useEffect(() => {
+
   //   if (selectGenreCinema !== '') { 
   //     // filterData = initialData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
   //     const filterGenreData = newData.filter(item => item.genre === selectGenreCinema);
@@ -39,7 +60,7 @@ export default function Main() {
     <div className={styles.container}>
       {newData && data && (
         <>
-          <FilterPanel selectGenreCinema={selectGenreCinema} setSelectGenreCinema={setSelectGenreCinema} setSelectIdCinema={setSelectIdCinema} cinemas={data.cinemas} initialData={data.movies} setNewData={setNewData} />
+          <FilterPanel filterText={filterText} setFilterText={setFilterText} selectGenreCinema={selectGenreCinema} setSelectGenreCinema={setSelectGenreCinema} setSelectIdCinema={setSelectIdCinema} cinemas={data.cinemas} initialData={data.movies} setNewData={setNewData} />
           <FilmList
             films={newData}
           />

@@ -21,6 +21,8 @@ interface IPropsFilterPanel {
   cinemas: ICinemas[],
   initialData: IFilm[],
   setNewData: React.Dispatch<React.SetStateAction<IFilm[]>>,
+  filterText: string,
+  setFilterText: (el: string) => void,
 }
 
 interface INewOptionsCinemas {
@@ -31,10 +33,10 @@ interface INewOptionsCinemas {
 
 
 
-export function FilterPanel({ selectGenreCinema, setSelectGenreCinema, setSelectIdCinema, cinemas, initialData, setNewData }: IPropsFilterPanel) {
+export function FilterPanel({ filterText, setFilterText, selectGenreCinema, setSelectGenreCinema, setSelectIdCinema, cinemas, initialData, setNewData }: IPropsFilterPanel) {
 
   const [optionsCinemas, setOptionsCinemas] = React.useState<INewOptionsCinemas[]>([]);
-  const [filterText, setFilterText] = React.useState("");
+  // const [filterText, setFilterText] = React.useState("");
   const [selectValueMovie, setSelectValueMovie] = React.useState("");
   const [selectValueCinemas, setSelectValueCinemas] = React.useState("");
 
@@ -75,18 +77,18 @@ export function FilterPanel({ selectGenreCinema, setSelectGenreCinema, setSelect
   const selectedValueMovies = optionsMovie.find((item) => item.title === selectValueMovie);
   const selectedValueCinemas = optionsCinemas.find((item) => item.title === selectValueCinemas);
 
-  React.useEffect(() => {
-    let filterData = initialData;
-    if (selectGenreCinema !== '') {
-      filterData = initialData.filter(item => item.genre.trim() === selectGenreCinema.trim());
-    }
+  // React.useEffect(() => {
+  //   let filterData = initialData;
+  //   if (selectGenreCinema !== '') {
+  //     filterData = initialData.filter(item => item.genre.trim() === selectGenreCinema.trim());
+  //   }
 
-    if (filterText || filterText === '') {
-      filterData = filterData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
-    }
-    setNewData(filterData);
+  //   if (filterText || filterText === '') {
+  //     filterData = filterData.filter(item => item.title.toLowerCase().includes(filterText.toLowerCase()));
+  //   }
+  //   setNewData(filterData);
 
-  }, [filterText, selectGenreCinema, initialData, setNewData]);
+  // }, [filterText, selectGenreCinema, initialData, setNewData]);
 
   React.useEffect(() => {
     let newOptionsCinemas = [{
