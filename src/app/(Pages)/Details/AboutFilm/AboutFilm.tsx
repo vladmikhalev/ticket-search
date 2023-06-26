@@ -8,44 +8,44 @@ import { usePathname } from 'next/navigation';
 import { IFilm } from '@/redux/services/movieApi';
 
 interface IPropsAboutFilm {
-  data: IFilm,
+  filmDetails: IFilm,
 }
 
 
-export function AboutFilm({ data }: IPropsAboutFilm) {
+export function AboutFilm({ filmDetails }: IPropsAboutFilm) {
 
   return (
     <div className={styles.aboutFilm}>
       <div className={styles.btnGroup}>
-        <AmountBtns id={data.id} />
+        <AmountBtns id={filmDetails.id} />
       </div>
 
       <div className={styles.imgWrapper}>
-        <Image className={styles.img} width={400} height={500} src={data.posterUrl} alt="previewFilm" priority={true} />
+        <Image className={styles.img} width={400} height={500} src={filmDetails.posterUrl} alt="previewFilm" priority={true} />
       </div>
 
       <div className={styles.blockText}>
-        <h2 className={styles.title}>{data.title}</h2>
+        <h2 className={styles.title}>{filmDetails.title}</h2>
 
         <div className={styles.categories}>
-          <b>Жанр:</b> {data.genre}
+          <b>Жанр:</b> {filmDetails.genre}
         </div>
 
         <div className={styles.categories}>
-          <b>Год выпуска: </b> {data.releaseYear}
+          <b>Год выпуска: </b> {filmDetails.releaseYear}
         </div>
 
         <div className={styles.categories}>
-          <b>Рейтинг:</b> {data.rating}
+          <b>Рейтинг:</b> {filmDetails.rating}
         </div>
 
         <div className={styles.categories}>
-          <b>Режиссер:</b> {data.director}
+          <b>Режиссер:</b> {filmDetails.director}
         </div>
 
         <div className={styles.descr}>
           <h3 className={styles.descrSubtitle}>Описание</h3>
-          <p className={styles.descrText}>{data.description}</p>
+          <p className={styles.descrText}>{filmDetails.description}</p>
         </div>
 
       </div>

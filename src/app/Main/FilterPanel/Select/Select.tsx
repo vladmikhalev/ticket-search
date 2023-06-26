@@ -81,6 +81,7 @@ function Select(props: SelectProps) {
     onClose
   } = props;
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedTetle, setSelectedTitle] = React.useState();
   const rootRef = useRef<HTMLDivElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
 
@@ -124,25 +125,22 @@ function Select(props: SelectProps) {
   const handlePlaceHolderClick: MouseEventHandler<HTMLDivElement> = () => {
     setIsOpen((prev) => !prev);
   };
-
   return (
     <div
       className={Styles.selectWrapper}
       ref={rootRef}
       data-is-active={isOpen}
-      onClick={handlePlaceHolderClick}
       data-mode={mode}
       data-testid="selectWrapper"
     >
       <div className={Styles.arrow}>
-        {/* <ArrowDown /> */}
         <IconArrowSelect />
       </div>
       <div
         className={Styles.placeholder}
         data-status={status}
         data-selected={!!selected?.value}
-        
+        onClick={handlePlaceHolderClick}
         role="button"
         tabIndex={0}
         ref={placeholderRef}

@@ -20,10 +20,22 @@ export interface IComment {
   text: string,
 }
 
+export interface ICinemas {
+  id: string,
+  name: string,
+  movieIds: string[],
+}
+
+export interface IMoviesAndCinemas {
+  cinemas: ICinemas[],
+  movies: IFilm[]  
+}
+
+const URL = "http://localhost:3001/api/";
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/api/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: URL }),
   endpoints: (builder) => ({
     getMovies: builder.query<IFilm[], void>({
       query: () => "movies",
@@ -65,7 +77,30 @@ export const movieApi = createApi({
     getComments: builder.query<IComment[], string>({
       query: (movieId: string) => `reviews?movieId=${movieId}`,
     }),
+    getCinemas: builder.query<ICinemas[], void>({
+      query: () => "cinemas",
+    }),
+    getFilmsAndCinemasData: builder.query<IMoviesAndCinemas, void>({
+      queryFn: async () => {
+        try {
+          const [movies, cinemas] = await Promise.all([
+            fetch(URL + 'movies').then((res) => res.json()),
+            fetch(URL + 'cinemas').then((res) => res.json()),
+          ]);
+          return { data: { movies, cinemas } };
+        } catch (e: any) {
+          return { error: e.message };
+        }
+      },
+    }),
+
   })
 });
 
-export const { useGetMoviesQuery, useGetMovieQuery, useGetCommentsQuery } = movieApi;
+export const { useGetMoviesQuery, useGetMovieQuery, useGetCommentsQuery, useGetCinemasQuery, useGetFilmsAndCinemasDataQuery } = movieApi;
+
+
+
+
+
+

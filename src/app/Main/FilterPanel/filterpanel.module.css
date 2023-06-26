@@ -3,9 +3,8 @@
   top: 98px;
   left: 0;
   width: 408px;
-
   height: 400px;
-
+  flex-shrink: 0;
   margin-right: 23px;
   padding: 24px;
   background-color: #fff;

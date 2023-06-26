@@ -1,17 +1,16 @@
-import { useGetCommentsQuery } from '@/redux/services/movieApi';
+import { IComment, useGetCommentsQuery } from '@/redux/services/movieApi';
 import { Сomment } from '@/shared/components/Сomment';
 import React from 'react';
 import styles from './commentslist.module.css';
 interface IPropsCommentsList {
-  idFilm: string
+  commentsFilm: IComment[],
 }
-export function CommentsList({ idFilm }: IPropsCommentsList) {
-  const { data, isLoading, error } = useGetCommentsQuery(idFilm);
-  console.log(data, 'comments')
+export function CommentsList({commentsFilm}: IPropsCommentsList) {
+  
   return (
     <ul>
-      {data && data.map((el) => { 
-        return <Сomment key={el.id} data={el} />
+      {commentsFilm.map((el) => { 
+        return <Сomment key={el.id} commentsFilm={el} />
       })}
 
     </ul>

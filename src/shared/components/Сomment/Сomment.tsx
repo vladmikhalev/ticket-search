@@ -5,10 +5,9 @@ import imgSrc from '../../../../public/assets/images/defaultAvatar.jpg';
 import { IComment } from '@/redux/services/movieApi';
 
 interface IPropsComment {
-  data: IComment,
+  commentsFilm: IComment,
 }
-
-export function Сomment({data}: IPropsComment) {
+export function Сomment({commentsFilm}: IPropsComment) {
   return (
     <div className={styles.comment}>
       <div className={styles.avatar}>
@@ -17,12 +16,12 @@ export function Сomment({data}: IPropsComment) {
 
       <div className={styles.blockText} >
         <div className={styles.textTop}>
-          <span className={styles.name}>{ data.name }</span>
+          <span className={styles.name}>{ commentsFilm.name }</span>
           <div className={styles.filmRating}>
-            Оценка: <b>{ data.rating }</b>
+            Оценка: <b>{ commentsFilm.rating }</b>
           </div>
         </div>
-        <p className={styles.commentText}>{ data.text }</p>
+        <p className={styles.commentText}>{ commentsFilm.text }</p>
       </div>
 
 
